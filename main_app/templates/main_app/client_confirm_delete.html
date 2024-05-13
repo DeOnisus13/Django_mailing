@@ -1,0 +1,29 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Удаление клиента</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" action="" class="form-floating" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <p>Точно удаляем ?</p>
+                    <p>{{ object.email|title }}</p>
+                    <p>{{ object.name|title }}</p>
+                    <div class="mb-3">
+                        <button type="submit" class="w-100 btn btn-lg btn-outline-danger">Удалить</button>
+                    </div>
+                    <div class="mb-3">
+                        <a href="{% url 'main_app:clients_page' %}" class="w-100 btn btn-lg btn-outline-primary">Отмена</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

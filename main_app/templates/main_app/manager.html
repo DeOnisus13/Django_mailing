@@ -1,0 +1,31 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+
+<main>
+    <div class="row row-cols-1 row-cols-md-4 mb-4 text-center">
+        {% for object in object_list %}
+        <div class="col">
+            <div class="card mb-2 rounded-3 shadow-sm border-primary">
+                <div class="card-header py-2 text-white bg-primary border-primary">
+                    <h6 class="my-0 fw-normal text text-truncate">Пользователь</h6>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-title pricing-card-title">Логин: {{ object.email }}</h6>
+                    <div class="mb-3">
+                        {% if object.is_active %}
+                        <a href="{% url 'main_app:toggle_activity_user' object.pk %}"
+                           class="w-120 btn btn-lg btn-outline-danger">Деактивировать</a>
+                        {% else %}
+                        <a href="{% url 'main_app:toggle_activity_user' object.pk %}"
+                           class="w-120 btn btn-lg btn-outline-success">Активировать</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
+{% endblock %}

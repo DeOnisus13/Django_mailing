@@ -1,0 +1,31 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+
+<main>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        {% for object in object_list %}
+        <div class="col">
+            <div class="card mb-2 rounded-3 shadow-sm border-primary">
+                <div class="card-header py-2 text-white bg-primary border-primary">
+                    <h6 class="my-0 fw-normal text text-truncate">{{ object.header|title }}</h6>
+                </div>
+                <div class="card-body">
+                    <img class="card-img-top" src="/media/{{ object.preview }}" alt="Item image">
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>{{ object.description|slice:":100" }}</li>
+                        <li>Просмотров: {{ object.views_count }}</li>
+                        <li>Дата публикации: {{ object.created_at | date:"d/m/Y" }}</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'blogs:blog_view' object.pk %}" type="button"
+                       class="btn btn-sm btn-outline-secondary">Посмотреть</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
+{% endblock %}

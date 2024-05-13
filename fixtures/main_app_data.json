@@ -1,0 +1,124 @@
+[
+  {
+    "model": "main_app.client",
+    "pk": 1,
+    "fields": {
+      "email": "forg1tlabs@gmail.com",
+      "name": "Client 1",
+      "comment": "",
+      "avatar": "",
+      "created_by": 4
+    }
+  },
+  {
+    "model": "main_app.client",
+    "pk": 2,
+    "fields": {
+      "email": "de94onisus@gmail.com",
+      "name": "Client 2",
+      "comment": "",
+      "avatar": "",
+      "created_by": 3
+    }
+  },
+  {
+    "model": "main_app.letter",
+    "pk": 1,
+    "fields": {
+      "letter_title": "Forg1t",
+      "letter_body": "Hello World",
+      "created_by": 4
+    }
+  },
+  {
+    "model": "main_app.letter",
+    "pk": 2,
+    "fields": {
+      "letter_title": "Test",
+      "letter_body": "Hi my friend",
+      "created_by": 3
+    }
+  },
+  {
+    "model": "main_app.mailing",
+    "pk": 1,
+    "fields": {
+      "name": "Forg1t 1",
+      "letter": 1,
+      "first_sending_time": "2024-05-13T05:05:00Z",
+      "next_sending_time": "2024-05-14T05:05:00.003Z",
+      "end_datetime": "2024-05-22T05:01:00Z",
+      "period": "Ежедневно",
+      "status": "Запущена",
+      "is_active": true,
+      "created_by": 4,
+      "client_emails": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "main_app.mailing",
+    "pk": 2,
+    "fields": {
+      "name": "Mailing De",
+      "letter": 2,
+      "first_sending_time": "2024-05-13T05:12:00Z",
+      "next_sending_time": "2024-05-20T05:12:00.004Z",
+      "end_datetime": "2024-05-30T05:11:00Z",
+      "period": "Еженедельно",
+      "status": "Запущена",
+      "is_active": true,
+      "created_by": 3,
+      "client_emails": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "main_app.mailing",
+    "pk": 3,
+    "fields": {
+      "name": "Forg1t 2",
+      "letter": 1,
+      "first_sending_time": "2024-05-13T05:55:00Z",
+      "next_sending_time": "2024-05-14T05:55:00.004Z",
+      "end_datetime": "2024-05-29T05:57:00Z",
+      "period": "Ежедневно",
+      "status": "Запущена",
+      "is_active": true,
+      "created_by": 4,
+      "client_emails": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "model": "main_app.logmessage",
+    "pk": 1,
+    "fields": {
+      "id_mailing": 1,
+      "last_try": "2024-05-13T05:05:00.897Z",
+      "sending_status": "Успешно"
+    }
+  },
+  {
+    "model": "main_app.logmessage",
+    "pk": 2,
+    "fields": {
+      "id_mailing": 2,
+      "last_try": "2024-05-13T05:12:00.740Z",
+      "sending_status": "Успешно"
+    }
+  },
+  {
+    "model": "main_app.logmessage",
+    "pk": 3,
+    "fields": {
+      "id_mailing": 3,
+      "last_try": "2024-05-13T05:55:00.643Z",
+      "sending_status": "Успешно"
+    }
+  }
+]

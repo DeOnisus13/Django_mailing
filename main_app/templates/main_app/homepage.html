@@ -1,0 +1,68 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<main>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        {% for object in object_list %}
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                <div class="card-header py-3 text-white bg-primary border-primary">
+                    <h4 class="my-0 fw-normal">{{ object.header }}</h4>
+                </div>
+                <div class="card-body">
+                        <p>{{ object.description|slice:":100" }}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'blogs:blog_view' object.pk %}" type="button"
+                       class="btn btn-sm btn-outline-secondary">Посмотреть</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                <div class="card-header py-3 text-white bg-primary border-primary" style="height: 90px">
+                    <h4 class="my-0 fw-normal">Всего уникальных клиентов сервиса</h4>
+                </div>
+                <div class="card-body">
+                    <h4 class="my-0 fw-normal">{{ clients_amount }}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                <div class="card-header py-3 text-white bg-primary border-primary" style="height: 90px;">
+                    <h4 class="my-0 fw-normal">Всего рассылок</h4>
+                </div>
+                <div class="card-body">
+                    <h4 class="my-0 fw-normal">{{ mailings_amount }}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                <div class="card-header py-3 text-white bg-primary border-primary" style="height: 90px">
+                    <h4 class="my-0 fw-normal">Всего активных рассылок</h4>
+                </div>
+                <div class="card-body">
+                    <h4 class="my-0 fw-normal">{{ mailings_active }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% else %}
+<header>
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <p class="fs-5 text-muted">Для просмотра сайта требуется авторизация или регистрация</p>
+    </div>
+</header>
+{% endif %}
+
+{% endblock %}

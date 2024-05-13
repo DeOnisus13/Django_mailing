@@ -1,0 +1,32 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+
+<div class="col-12">
+    <form class="row" method="post" action="" enctype="multipart/form-data">
+        <div class="col-6">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">Вход</h4>
+                </div>
+                <div class="card-body">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="mb-3">
+                        <button type="submit" class="w-100 btn btn-lg btn-outline-primary">Войти</button>
+                    </div>
+                    <div class="mb-3">
+                        <a href="{% url 'users:register' %}" class="w-100 btn btn-lg btn-outline-danger">Регистрация</a>
+                    </div>
+                    <div class="mb-3">
+                        <a href="{% url 'users:restore_password' %}" class="w-100 btn btn-lg btn-outline-danger">Забыли пароль?</a>
+                    </div>
+                    <div class="mb-3">
+                        <a href="{% url 'main_app:homepage' %}" class="w-100 btn btn-lg btn-outline-primary">Назад</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

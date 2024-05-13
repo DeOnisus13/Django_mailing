@@ -1,0 +1,32 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+
+<main>
+    <div class="row row-cols-1 row-cols-md-1 mb-2 text-center">
+        <div class="col">
+            <div class="mb-3">
+                <a href="{% url 'main_app:mailing_page' %}"
+                   class="w-120 btn btn-lg btn-outline-primary">Назад</a>
+            </div>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-1 mb-1 text-center">
+        <table>
+            <tr style="#">
+                <th>Наименование</th>
+                <th>Время попытки</th>
+                <th>Статус</th>
+            </tr>
+            {% for object in object_list %}
+            <tr>
+                <td style="#">{{ object.id_mailing.name|title }}</td>
+                <td style="#">{{ object.last_try|date:"d/m/Y, H:i" }}</td>
+                <td style="#">{{ object.sending_status }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</main>
+
+{% endblock %}

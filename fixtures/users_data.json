@@ -1,0 +1,88 @@
+[
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$LxrMZRHPj6JuvClB4FzrAA$5NnC4E9KeAEvNlQuiCaWnC8euIqQOcX9jIKwUKRMIEU=",
+      "last_login": "2024-05-13T05:46:04.658Z",
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-05-13T04:42:58Z",
+      "email": "manager@sky.pro",
+      "phone": null,
+      "avatar": "",
+      "country": null,
+      "auth_token": null,
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$Qb3JppVXL58adN0nPRMDkM$svETmjZmZm18hkyHLoMjFEM47s2h75/keFfsb6EPFeM=",
+      "last_login": "2024-05-13T05:42:05Z",
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-05-13T04:43:07Z",
+      "email": "test@sky.pro",
+      "phone": null,
+      "avatar": "",
+      "country": null,
+      "auth_token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$qqycZsLhbXDfCigfSWb6wo$9OZOBe0n9ogSyNdQJ0HGgkjjhKof0x4+ksAkuJBGMXE=",
+      "last_login": "2024-05-13T05:47:21.531Z",
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-05-13T04:48:06.154Z",
+      "email": "forg1tlabs@gmail.com",
+      "phone": null,
+      "avatar": "",
+      "country": null,
+      "auth_token": "N8696",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$c6WOMmd6alVDigFpIZsNzS$nC0l4FEso9s2fQARIwHYooBzVVuj14W0VpPqvdKHCq8=",
+      "last_login": "2024-05-13T05:45:02.894Z",
+      "is_superuser": true,
+      "first_name": "Admin",
+      "last_name": "Admin",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-05-13T05:44:54.443Z",
+      "email": "admin@sky.pro",
+      "phone": null,
+      "avatar": "",
+      "country": null,
+      "auth_token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

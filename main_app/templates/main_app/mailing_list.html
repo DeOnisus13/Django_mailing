@@ -1,0 +1,57 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+
+<main>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        {% for object in object_list %}
+        <div class="col">
+            <div class="card mb-2 rounded-3 shadow-sm border-primary">
+                <div class="card-header py-2 text-white bg-primary border-primary">
+                    <h6 class="my-0 fw-normal text text-truncate">{{ object.name|title }}</h6>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-title pricing-card-title">Время рассылки: {{ object.first_sending_time|date:"d/m/Y, H:i" }}</h6>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Периодичность: {{ object.period }}</li>
+                        <li>Статус: {{ object.status }}</li>
+                        <li>Владелец: {{ object.created_by }}</li>
+                        <li>След рассылка: {{ object.next_sending_time|date:"d/m/Y, H:i"|default:'Не заполнено'}}</li>
+                    </ul>
+                    <div class="mb-3">
+                        {% if object.is_active %}
+                        <a href="{% url 'main_app:toggle_activity_mailing' object.pk %}"
+                           class="w-120 btn btn-lg btn-outline-danger">Отключить</a>
+                        {% else %}
+                        <a href="{% url 'main_app:toggle_activity_mailing' object.pk %}"
+                           class="w-120 btn btn-lg btn-outline-success">Включить</a>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <a href="{% url 'main_app:logs_page' object.pk %}"
+                           class="w-120 btn btn-lg btn-outline-warning">Логи</a>
+                    </div>
+                    <div class="mb-3">
+                        <a href="{% url 'main_app:view_mailing' object.pk %}"
+                           class="w-120 btn btn-lg btn-outline-primary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% if not user.is_staff %}
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                <div class="card-header py-2 text-white bg-primary border-primary">
+                    <h6 class="my-0 fw-normal text text-truncate">Новая рассылка</h6>
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'main_app:add_mailing' %}" class="w-120 btn btn-lg btn-outline-primary">Добавить</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</main>
+
+{% endblock %}
